@@ -1,0 +1,30 @@
+{
+  "name": "quickfill-extension",
+  "version": "0.1.0",
+  "description": "Chrome extension that locally auto-fills forms using reusable profiles.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && cp manifest.json dist/manifest.json && mkdir -p dist && cp dist/src/popup/index.html dist/popup.html && rm -rf dist/src dist/icons && mkdir -p dist/icons && cp -R src/icons/. dist/icons",
+    "package:release": "npm run build && ./scripts/package-release.sh",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test:extension": "npm run build && playwright test"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@types/chrome": "^0.0.266",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.45",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.2",
+    "vite": "^5.2.0"
+  }
+}

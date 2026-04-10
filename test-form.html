@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickFill Test Form</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, system-ui, sans-serif; background: #f5f5f5; color: #1a1a1a; padding: 40px 20px; }
+    .container { max-width: 700px; margin: 0 auto; }
+    h1 { font-size: 24px; margin-bottom: 8px; }
+    h1 span { color: #C96442; }
+    p.subtitle { color: #666; font-size: 14px; margin-bottom: 32px; }
+    .section { background: #fff; border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    .section h2 { font-size: 16px; font-weight: 600; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .row.full { grid-template-columns: 1fr; }
+    label { display: block; font-size: 12px; font-weight: 500; color: #555; margin-bottom: 4px; }
+    input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; transition: border-color 0.2s; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: #C96442; box-shadow: 0 0 0 3px rgba(201,100,66,0.15); }
+    textarea { resize: vertical; min-height: 80px; }
+    .filled { background: #f0fdf4 !important; border-color: #86efac !important; }
+    .badge { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 99px; margin-left: 8px; }
+    .badge-personal { background: #dbeafe; color: #1d4ed8; }
+    .badge-address { background: #fef3c7; color: #92400e; }
+    .badge-work { background: #ede9fe; color: #6d28d9; }
+    .badge-travel { background: #fce7f3; color: #be185d; }
+    .badge-payment { background: #fee2e2; color: #dc2626; }
+    .badge-medical { background: #d1fae5; color: #065f46; }
+    .badge-social { background: #e0e7ff; color: #3730a3; }
+    .badge-edu { background: #fff7ed; color: #c2410c; }
+    button.submit { background: #C96442; color: #fff; border: none; padding: 12px 32px; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 12px; transition: background 0.2s; }
+    button.submit:hover { background: #B5573A; }
+    button.reset { background: #fff; color: #666; border: 1px solid #ddd; padding: 12px 32px; border-radius: 10px; font-size: 15px; cursor: pointer; margin-top: 12px; margin-left: 12px; }
+    .status { margin-top: 16px; padding: 12px; background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; font-size: 13px; color: #166534; display: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>QuickFill <span>Test Form</span></h1>
+    <p class="subtitle">Open the QuickFill extension and click "Fill this page" to test autofill.</p>
+
+    <!-- PERSONAL -->
+    <div class="section">
+      <h2>Personal Information <span class="badge badge-personal">Personal</span></h2>
+      <div class="row">
+        <div><label for="firstName">First Name</label><input id="firstName" name="firstName" autocomplete="given-name"></div>
+        <div><label for="lastName">Last Name</label><input id="lastName" name="lastName" autocomplete="family-name"></div>
+      </div>
+      <div class="row">
+        <div><label for="middleName">Middle Name</label><input id="middleName" name="middleName" autocomplete="additional-name"></div>
+        <div><label for="fullName">Full Name</label><input id="fullName" name="fullName" autocomplete="name"></div>
+      </div>
+      <div class="row">
+        <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"></div>
+        <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="row">
+        <div><label for="dateOfBirth">Date of Birth</label><input id="dateOfBirth" name="dateOfBirth" autocomplete="bday"></div>
+        <div>
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender" autocomplete="sex">
+            <option value="">Select...</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Non-binary">Non-binary</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADDRESS -->
+    <div class="section">
+      <h2>Home Address <span class="badge badge-address">Address</span></h2>
+      <div class="row full"><div><label for="addressLine1">Address Line 1</label><input id="addressLine1" name="addressLine1" autocomplete="address-line1"></div></div>
+      <div class="row full"><div><label for="addressLine2">Address Line 2</label><input id="addressLine2" name="addressLine2" autocomplete="address-line2"></div></div>
+      <div class="row">
+        <div><label for="city">City</label><input id="city" name="city" autocomplete="address-level2"></div>
+        <div><label for="state">State / Province</label><input id="state" name="state" autocomplete="address-level1"></div>
+      </div>
+      <div class="row">
+        <div><label for="postalCode">ZIP / Postal Code</label><input id="postalCode" name="postalCode" autocomplete="postal-code"></div>
+        <div><label for="country">Country</label><input id="country" name="country" autocomplete="country-name"></div>
+      </div>
+    </div>
+
+    <!-- SHIPPING -->
+    <div class="section">
+      <h2>Shipping Address <span class="badge badge-address">Shipping</span></h2>
+      <div class="row full"><div><label for="shippingAddressLine1">Shipping Address</label><input id="shippingAddressLine1" name="shippingAddressLine1"></div></div>
+      <div class="row">
+        <div><label for="shippingCity">Shipping City</label><input id="shippingCity" name="shippingCity"></div>
+        <div><label for="shippingState">Shipping State</label><input id="shippingState" name="shippingState"></div>
+      </div>
+      <div class="row">
+        <div><label for="shippingPostalCode">Shipping ZIP</label><input id="shippingPostalCode" name="shippingPostalCode"></div>
+        <div><label for="shippingCountry">Shipping Country</label><input id="shippingCountry" name="shippingCountry"></div>
+      </div>
+    </div>
+
+    <!-- WORK -->
+    <div class="section">
+      <h2>Employment <span class="badge badge-work">Work</span></h2>
+      <div class="row">
+        <div><label for="company">Company</label><input id="company" name="company" autocomplete="organization"></div>
+        <div><label for="jobTitle">Job Title</label><input id="jobTitle" name="jobTitle" autocomplete="organization-title"></div>
+      </div>
+      <div class="row">
+        <div><label for="department">Department</label><input id="department" name="department"></div>
+        <div><label for="workEmail">Work Email</label><input id="workEmail" name="workEmail" type="email"></div>
+      </div>
+      <div class="row">
+        <div><label for="annualIncome">Annual Income</label><input id="annualIncome" name="annualIncome"></div>
+        <div><label for="yearsOfExperience">Years of Experience</label><input id="yearsOfExperience" name="yearsOfExperience"></div>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="section">
+      <h2>Education <span class="badge badge-edu">Education</span></h2>
+      <div class="row">
+        <div><label for="schoolName">School / University</label><input id="schoolName" name="schoolName"></div>
+        <div><label for="degree">Degree</label><input id="degree" name="degree"></div>
+      </div>
+      <div class="row">
+        <div><label for="major">Major / Field of Study</label><input id="major" name="major"></div>
+        <div><label for="graduationDate">Graduation Date</label><input id="graduationDate" name="graduationDate"></div>
+      </div>
+    </div>
+
+    <!-- TRAVEL -->
+    <div class="section">
+      <h2>Travel Documents <span class="badge badge-travel">Travel</span></h2>
+      <div class="row">
+        <div><label for="passportNumber">Passport Number</label><input id="passportNumber" name="passportNumber"></div>
+        <div><label for="nationality">Nationality</label><input id="nationality" name="nationality"></div>
+      </div>
+      <div class="row">
+        <div><label for="knownTravelerNumber">Known Traveler Number</label><input id="knownTravelerNumber" name="knownTravelerNumber"></div>
+        <div><label for="frequentFlyerNumber">Frequent Flyer Number</label><input id="frequentFlyerNumber" name="frequentFlyerNumber"></div>
+      </div>
+    </div>
+
+    <!-- PAYMENT -->
+    <div class="section">
+      <h2>Payment <span class="badge badge-payment">Payment</span></h2>
+      <div class="row full"><div><label for="cardholderName">Name on Card</label><input id="cardholderName" name="cardholderName" autocomplete="cc-name"></div></div>
+      <div class="row full"><div><label for="cardNumber">Card Number</label><input id="cardNumber" name="cardNumber" autocomplete="cc-number"></div></div>
+      <div class="row">
+        <div><label for="cardExpiryMonth">Expiry Month</label><input id="cardExpiryMonth" name="cardExpiryMonth" autocomplete="cc-exp-month" placeholder="MM"></div>
+        <div><label for="cardExpiryYear">Expiry Year</label><input id="cardExpiryYear" name="cardExpiryYear" autocomplete="cc-exp-year" placeholder="YYYY"></div>
+      </div>
+      <div class="row full"><div><label for="cardSecurityCode">CVV</label><input id="cardSecurityCode" name="cardSecurityCode" autocomplete="cc-csc" style="max-width:120px"></div></div>
+    </div>
+
+    <!-- MEDICAL -->
+    <div class="section">
+      <h2>Medical / Insurance <span class="badge badge-medical">Medical</span></h2>
+      <div class="row">
+        <div><label for="insuranceProvider">Insurance Provider</label><input id="insuranceProvider" name="insuranceProvider"></div>
+        <div><label for="insuranceMemberId">Member ID</label><input id="insuranceMemberId" name="insuranceMemberId"></div>
+      </div>
+      <div class="row">
+        <div><label for="emergencyContactName">Emergency Contact Name</label><input id="emergencyContactName" name="emergencyContactName"></div>
+        <div><label for="emergencyContactPhone">Emergency Contact Phone</label><input id="emergencyContactPhone" name="emergencyContactPhone"></div>
+      </div>
+      <div class="row">
+        <div><label for="bloodType">Blood Type</label><input id="bloodType" name="bloodType"></div>
+        <div><label for="allergies">Allergies</label><input id="allergies" name="allergies"></div>
+      </div>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="section">
+      <h2>Social & Links <span class="badge badge-social">Social</span></h2>
+      <div class="row">
+        <div><label for="linkedinUrl">LinkedIn</label><input id="linkedinUrl" name="linkedinUrl" placeholder="https://linkedin.com/in/..."></div>
+        <div><label for="githubUrl">GitHub</label><input id="githubUrl" name="githubUrl" placeholder="https://github.com/..."></div>
+      </div>
+      <div class="row">
+        <div><label for="twitterHandle">Twitter / X</label><input id="twitterHandle" name="twitterHandle" placeholder="@handle"></div>
+        <div><label for="website">Website</label><input id="website" name="website" placeholder="https://..."></div>
+      </div>
+    </div>
+
+    <!-- GOVERNMENT -->
+    <div class="section">
+      <h2>Government IDs <span class="badge badge-payment">Sensitive</span></h2>
+      <div class="row">
+        <div><label for="ssn">SSN</label><input id="ssn" name="ssn" placeholder="XXX-XX-XXXX"></div>
+        <div><label for="driverLicenseNumber">Driver's License #</label><input id="driverLicenseNumber" name="driverLicenseNumber"></div>
+      </div>
+      <div class="row">
+        <div><label for="taxId">Tax ID</label><input id="taxId" name="taxId"></div>
+        <div><label for="driverLicenseState">License State</label><input id="driverLicenseState" name="driverLicenseState"></div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+      <button class="submit" type="button" onclick="checkFilled()">Check filled fields</button>
+      <button class="reset" type="button" onclick="resetAll()">Reset all</button>
+    </div>
+    <div class="status" id="status"></div>
+  </div>
+
+  <script>
+    function checkFilled() {
+      const inputs = document.querySelectorAll('input, select, textarea');
+      let filled = 0, total = 0;
+      inputs.forEach(el => {
+        total++;
+        if (el.value && el.value.trim()) {
+          filled++;
+          el.classList.add('filled');
+        } else {
+          el.classList.remove('filled');
+        }
+      });
+      const status = document.getElementById('status');
+      status.style.display = 'block';
+      status.textContent = `QuickFill filled ${filled} out of ${total} fields (${Math.round(filled/total*100)}%)`;
+    }
+    function resetAll() {
+      document.querySelectorAll('input, select, textarea').forEach(el => {
+        el.value = '';
+        el.classList.remove('filled');
+      });
+      document.getElementById('status').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

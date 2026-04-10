@@ -1,0 +1,24 @@
+# Build output
+dist/
+release/
+
+# Dependencies
+node_modules/
+
+# Test artifacts
+test-results/
+playwright-report/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

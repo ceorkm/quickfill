@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="QuickFill Privacy Policy — how your data is handled. Spoiler: it never leaves your device." />
+  <meta name="theme-color" content="#C96442" />
+  <title>Privacy — QuickFill</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="./assets/logo.png" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-feature-settings: 'cv11', 'ss01', 'ss03';
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: var(--text-primary);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; border: none; background: none; cursor: pointer; }
+    img { display: block; max-width: 100%; }
+
+    :root {
+      --bg: #FDFCFB;
+      --bg-subtle: #FAF8F5;
+      --bg-card: #FFFFFF;
+      --border: #EFECE8;
+      --border-strong: #E3DED7;
+      --text-primary: #1A1915;
+      --text-secondary: #5C5751;
+      --text-tertiary: #9B9590;
+      --accent: #C96442;
+      --accent-hover: #B5573A;
+      --accent-bg: rgba(201, 100, 66, 0.06);
+      --r-sm: 8px;
+      --r-md: 12px;
+      --r-lg: 16px;
+      --shadow-sm: 0 1px 2px rgba(26, 25, 21, 0.04);
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation — identical to landing */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(253, 252, 251, 0.85);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    nav.scrolled { border-bottom-color: var(--border); }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: -0.2px;
+    }
+    .brand img { width: 28px; height: 28px; border-radius: 6px; }
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      border-radius: var(--r-sm);
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-link:hover { color: var(--text-primary); background: var(--bg-subtle); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      font-size: 13.5px;
+      font-weight: 600;
+      border-radius: var(--r-md);
+      transition: background 0.15s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+    /* Content */
+    main {
+      padding: 64px 0 96px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px 5px 10px;
+      background: var(--accent-bg);
+      border: 1px solid rgba(201, 100, 66, 0.18);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.01em;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.02;
+      margin: 0 0 16px;
+    }
+    .meta {
+      font-size: 14px;
+      color: var(--text-tertiary);
+      margin: 0 0 48px;
+    }
+    h2 {
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: var(--text-primary);
+      margin: 44px 0 12px;
+    }
+    p, li {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin: 0 0 14px;
+    }
+    ul { padding-left: 22px; margin: 0 0 14px; }
+    strong { color: var(--text-primary); font-weight: 600; }
+
+    .tldr {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 24px 28px;
+      margin: 32px 0 48px;
+    }
+    .tldr-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .tldr p {
+      font-size: 15.5px;
+      color: var(--text-primary);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--text-tertiary);
+      margin-bottom: 24px;
+      transition: color 0.15s;
+    }
+    .back:hover { color: var(--text-primary); }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+    .footer-brand img { width: 20px; height: 20px; border-radius: 4px; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-link {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      transition: color 0.15s;
+    }
+    .footer-link:hover { color: var(--text-primary); }
+  </style>
+</head>
+
+<body>
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="./" class="brand">
+        <img src="./assets/logo.png" alt="QuickFill" />
+        QuickFill
+      </a>
+      <div class="nav-links">
+        <a href="./" class="nav-link">Home</a>
+        <a href="#" class="btn btn-primary">
+          Add to Chrome
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p class="meta">Last updated: April 10, 2026</p>
+
+      <div class="tldr">
+        <div class="tldr-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12.01" y2="8"/>
+          </svg>
+          TL;DR
+        </div>
+        <p>
+          Your data stays on your device. QuickFill has no server, no tracking, no analytics, and no remote code.
+          We never see, collect, or share anything you save.
+        </p>
+      </div>
+
+      <p>
+        QuickFill is a Chrome extension that lets you save profile information locally and auto-fill
+        forms on websites you choose to use. This page explains exactly how your data is handled.
+      </p>
+
+      <h2>What QuickFill does</h2>
+      <p>
+        QuickFill helps you save form data — including custom fields — and auto-fill matching inputs
+        on web pages. It can also generate a randomized fake identity for sign-ups you don't want to
+        hand real information to.
+      </p>
+
+      <h2>Information QuickFill handles</h2>
+      <p>
+        QuickFill only handles information <strong>you choose to enter</strong> into the extension. That may include:
+      </p>
+      <ul>
+        <li>Names, email addresses, and phone numbers</li>
+        <li>Postal addresses and shipping details</li>
+        <li>Travel details such as passport numbers</li>
+        <li>Education, employment, and payment details</li>
+        <li>Health-related fields and any custom fields you create</li>
+      </ul>
+      <p>
+        To match saved profile data to the correct inputs, QuickFill also reads form field labels,
+        names, placeholders, and related page content on the sites you visit.
+      </p>
+
+      <h2>How information is used</h2>
+      <p>
+        QuickFill uses this information <strong>only</strong> to provide its autofill features. Saved
+        profile data is used to fill forms when you click the extension or use the autofill controls.
+        That's it. It is not used for anything else.
+      </p>
+
+      <h2>Where information is stored</h2>
+      <p>
+        QuickFill stores saved profiles and settings <strong>locally in your browser</strong>, using the
+        Chrome extension storage API on your device. QuickFill does not operate a backend service
+        and does not store your data on any server.
+      </p>
+
+      <h2>Sharing and selling</h2>
+      <p>
+        QuickFill <strong>does not sell your data</strong>. QuickFill does not share your saved profile
+        data with the developer or any third party. There are no analytics, no telemetry, and no
+        tracking pixels anywhere in the extension.
+      </p>
+
+      <h2>Remote code</h2>
+      <p>
+        QuickFill does not use remotely hosted executable code. All executable code is packaged inside
+        the extension and can be inspected in the open source repository.
+      </p>
+
+      <h2>User control</h2>
+      <p>
+        You control everything you enter into QuickFill. You can edit, replace, or remove saved profile
+        information at any time through the extension popup. Uninstalling the extension removes all
+        saved data from your device.
+      </p>
+
+      <h2>Open source</h2>
+      <p>
+        QuickFill is fully open source. Anyone can inspect the code, verify these claims, and contribute.
+        The source code is available on GitHub.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For questions about this privacy policy, contact the publisher through the contact information
+        listed on the Chrome Web Store listing for QuickFill, or open an issue on the GitHub repository.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="./assets/logo.png" alt="" />
+        &copy; <span id="year"></span> QuickFill — Made with care.
+      </div>
+      <div class="footer-links">
+        <a href="#" class="footer-link">GitHub</a>
+        <a href="./privacy.html" class="footer-link">Privacy</a>
+        <a href="#" class="footer-link">Chrome Store</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+      if (window.scrollY > 8) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
+</body>
+</html>
